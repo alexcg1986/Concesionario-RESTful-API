@@ -23,7 +23,7 @@ public class Coche {
     private Marca marca = new Marca();
     @ManyToOne(fetch = FetchType.LAZY)
     private Modelo modelo = new Modelo();
-    @Column(name = "matricula", nullable = false, length = 8, unique = false)
+    @Column(name = "matricula", nullable = false, length = 8, unique = true)
     private String matricula;
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario = new Usuario();

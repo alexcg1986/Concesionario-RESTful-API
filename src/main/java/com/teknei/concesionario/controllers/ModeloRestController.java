@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teknei.concesionario.dto.ModeloDTO;
+import com.teknei.concesionario.dto.ParametrosDTO;
 import com.teknei.concesionario.services.ModeloService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,18 @@ public class ModeloRestController {
             return new ResponseEntity<List<EntityModel<ModeloDTO>>>(service.getAll().stream()
                     .map(item -> item.add(
                             WebMvcLinkBuilder.linkTo(ModeloRestController.class).slash(item.getId()).withSelfRel()))
+                    .collect(Collectors.toList()), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<EntityModel<ModeloDTO>>>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/filtrado")
+    public ResponseEntity<List<EntityModel<ModeloDTO>>> getAllFiltered(@RequestBody ParametrosDTO parametrosDTO) {
+        try {
+            return new ResponseEntity<List<EntityModel<ModeloDTO>>>(service.getAllFiltered(parametrosDTO).stream()
+                    .map(item -> item
+                            .add(WebMvcLinkBuilder.linkTo(CocheRestController.class).slash(item.getId()).withSelfRel()))
                     .collect(Collectors.toList()), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<List<EntityModel<ModeloDTO>>>(HttpStatus.BAD_REQUEST);
