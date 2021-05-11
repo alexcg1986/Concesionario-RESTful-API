@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/marca")
+@RequestMapping("/api/marca")
 @CrossOrigin(origins = "http://localhost:8081")
 public class MarcaRestController {
 

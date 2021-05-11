@@ -20,7 +20,7 @@ import lombok.Data;
 public class Marca {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombre", nullable = false, length = 45, unique = true)
     private String nombre;
