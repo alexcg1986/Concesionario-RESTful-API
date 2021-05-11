@@ -13,6 +13,7 @@ public class ModeloMapperImpl implements Mapper<Modelo, ModeloDTO> {
         Modelo modelo = new Modelo();
         modelo.setId(dto.getId());
         modelo.setNombre(dto.getNombre());
+        modelo.getMarca().setId(dto.getMarca().getId());
         return modelo;
     }
 
@@ -21,6 +22,8 @@ public class ModeloMapperImpl implements Mapper<Modelo, ModeloDTO> {
         ModeloDTO modeloDTO = new ModeloDTO();
         modeloDTO.setId(entity.getId());
         modeloDTO.setNombre(entity.getNombre());
+        modeloDTO.getMarca().setId(entity.getMarca().getId());
+        modeloDTO.getMarca().setNombre(entity.getMarca().getNombre());
         return modeloDTO;
     }
 }

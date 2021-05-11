@@ -25,5 +25,7 @@ public class Marca {
     @Column(name = "nombre", nullable = false, length = 45, unique = true)
     private String nombre;
     @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Modelo> modelos = new ArrayList<>();
+    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Coche> coches = new ArrayList<>();
 }

@@ -1,5 +1,7 @@
 package com.teknei.concesionario.dto;
 
+import com.teknei.concesionario.model.Marca;
+
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;
 
@@ -13,4 +15,5 @@ public class ModeloDTO extends EntityModel<ModeloDTO> {
 
     private Integer id;
     private String nombre;
+    private Marca marca = new Marca();
 }
