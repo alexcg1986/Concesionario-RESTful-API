@@ -32,18 +32,18 @@ public class FileNetServiceImpl implements FileNetService<Coche> {
 
     @Override
     public void CreateDocument(List<Coche> list, ObjectStore os) {
-        Document doc = Factory.Document.createInstance(os, ClassNames.DOCUMENT);
+        final Document doc = Factory.Document.createInstance(os, ClassNames.DOCUMENT);
         // own logic to populate document with the list of cars
         doc.getProperties().putValue("Modelos", "New Document via Java API");
         doc.set_MimeType("application/pdf");
-        StorageArea sa = Factory.StorageArea.getInstance(os, new Id("{DE42374D-B04B-4F47-A62E-CAC9AC9A5719}"));
+        final StorageArea sa = Factory.StorageArea.getInstance(os, new Id("{DE42374D-B04B-4F47-A62E-CAC9AC9A5719}"));
         doc.set_StorageArea(sa);
         doc.save(RefreshMode.NO_REFRESH);
         doc.checkin(AutoClassify.DO_NOT_AUTO_CLASSIFY, CheckinType.MAJOR_VERSION);
         doc.save(RefreshMode.NO_REFRESH);
-        Folder folder = Factory.Folder.getInstance(os, ClassNames.FOLDER,
+        final Folder folder = Factory.Folder.getInstance(os, ClassNames.FOLDER,
                 new Id("{42A3FC29-D635-4C37-8C86-84BAC73FFA3F}"));
-        ReferentialContainmentRelationship rcr = folder.file(doc, AutoUniqueName.AUTO_UNIQUE,
+        final ReferentialContainmentRelationship rcr = folder.file(doc, AutoUniqueName.AUTO_UNIQUE,
                 "New Document via Java API", DefineSecurityParentage.DO_NOT_DEFINE_SECURITY_PARENTAGE);
         rcr.save(RefreshMode.NO_REFRESH);
     }

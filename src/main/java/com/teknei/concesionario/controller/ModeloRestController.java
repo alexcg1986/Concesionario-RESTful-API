@@ -56,7 +56,7 @@ public class ModeloRestController {
     @GetMapping("{id}")
     public ResponseEntity<ModeloDTO> find(@PathVariable("id") Integer id) {
         try {
-            ModeloDTO item = service.get(id);
+            final ModeloDTO item = service.get(id);
             if (item != null) {
                 item.add(WebMvcLinkBuilder.linkTo(ModeloRestController.class).slash(item.getId()).withSelfRel());
                 return new ResponseEntity<ModeloDTO>(item, HttpStatus.OK);
@@ -70,7 +70,7 @@ public class ModeloRestController {
     @PostMapping
     public ResponseEntity<ModeloDTO> save(@RequestBody ModeloDTO dto) {
         try {
-            ModeloDTO savedItem = service.save(dto);
+            final ModeloDTO savedItem = service.save(dto);
             savedItem.add(WebMvcLinkBuilder.linkTo(ModeloRestController.class).slash(savedItem.getId()).withSelfRel());
             return new ResponseEntity<ModeloDTO>(savedItem, HttpStatus.OK);
         } catch (Exception e) {
@@ -81,7 +81,7 @@ public class ModeloRestController {
     @DeleteMapping("{id}")
     public ResponseEntity<ModeloDTO> delete(@PathVariable("id") Integer id) {
         try {
-            ModeloDTO itemToDelete = service.get(id);
+            final ModeloDTO itemToDelete = service.get(id);
             if (itemToDelete != null) {
                 service.delete(id);
                 return new ResponseEntity<ModeloDTO>(itemToDelete, HttpStatus.OK);

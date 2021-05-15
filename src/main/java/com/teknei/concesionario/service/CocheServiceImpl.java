@@ -34,8 +34,8 @@ public class CocheServiceImpl extends GenericCrudServiceImpl<Coche, CocheDTO, In
 
     @Override
     public List<CocheDTO> getAllFiltered(ParametrosDTO parametrosDTO) {
-        BooleanExpression booleanExpression = QCoche.coche.marca.id.eq(parametrosDTO.getMarcaId());
-        OrderSpecifier<Integer> orderSpecifier = QCoche.coche.id.asc();
+        final BooleanExpression booleanExpression = QCoche.coche.marca.id.eq(parametrosDTO.getMarcaId());
+        final OrderSpecifier<Integer> orderSpecifier = QCoche.coche.id.asc();
         return StreamSupport.stream(repository.findAll(booleanExpression, orderSpecifier).spliterator(), false)
                 .map(mapper::toDTO).collect(Collectors.toList());
     }

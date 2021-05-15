@@ -27,7 +27,7 @@ public abstract class GenericCrudServiceImpl<Entity, DTO, Id extends Serializabl
 
     @Override
     public DTO get(Id id) {
-        Optional<Entity> optional = getRepository().findById(id);
+        final Optional<Entity> optional = getRepository().findById(id);
         return optional.isPresent() ? mapper.toDTO(optional.get()) : null;
     }
 

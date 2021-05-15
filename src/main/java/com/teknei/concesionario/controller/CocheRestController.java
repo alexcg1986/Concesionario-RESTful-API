@@ -56,7 +56,7 @@ public class CocheRestController {
     @GetMapping("{id}")
     public ResponseEntity<CocheDTO> find(@PathVariable("id") Integer id) {
         try {
-            CocheDTO item = service.get(id);
+            final CocheDTO item = service.get(id);
             if (item != null) {
                 item.add(WebMvcLinkBuilder.linkTo(CocheRestController.class).slash(item.getId()).withSelfRel());
                 return new ResponseEntity<CocheDTO>(item, HttpStatus.OK);
@@ -70,7 +70,7 @@ public class CocheRestController {
     @PostMapping
     public ResponseEntity<CocheDTO> save(@RequestBody CocheDTO dto) {
         try {
-            CocheDTO savedItem = service.save(dto);
+            final CocheDTO savedItem = service.save(dto);
             savedItem.add(WebMvcLinkBuilder.linkTo(CocheRestController.class).slash(savedItem.getId()).withSelfRel());
             return new ResponseEntity<CocheDTO>(savedItem, HttpStatus.OK);
         } catch (Exception e) {
@@ -81,7 +81,7 @@ public class CocheRestController {
     @DeleteMapping("{id}")
     public ResponseEntity<CocheDTO> delete(@PathVariable("id") Integer id) {
         try {
-            CocheDTO itemToDelete = service.get(id);
+            final CocheDTO itemToDelete = service.get(id);
             if (itemToDelete != null) {
                 service.delete(id);
                 return new ResponseEntity<CocheDTO>(itemToDelete, HttpStatus.OK);

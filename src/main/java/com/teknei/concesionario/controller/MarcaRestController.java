@@ -43,7 +43,7 @@ public class MarcaRestController {
     @GetMapping("{id}")
     public ResponseEntity<MarcaDTO> find(@PathVariable("id") Integer id) {
         try {
-            MarcaDTO item = service.get(id);
+            final MarcaDTO item = service.get(id);
             if (item != null) {
                 item.add(WebMvcLinkBuilder.linkTo(MarcaRestController.class).slash(item.getId()).withSelfRel());
                 return new ResponseEntity<MarcaDTO>(item, HttpStatus.OK);
@@ -57,7 +57,7 @@ public class MarcaRestController {
     @PostMapping
     public ResponseEntity<MarcaDTO> save(@RequestBody MarcaDTO dto) {
         try {
-            MarcaDTO savedItem = service.save(dto);
+            final MarcaDTO savedItem = service.save(dto);
             savedItem.add(WebMvcLinkBuilder.linkTo(MarcaRestController.class).slash(savedItem.getId()).withSelfRel());
             return new ResponseEntity<MarcaDTO>(savedItem, HttpStatus.OK);
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class MarcaRestController {
     @DeleteMapping("{id}")
     public ResponseEntity<MarcaDTO> delete(@PathVariable("id") Integer id) {
         try {
-            MarcaDTO itemToDelete = service.get(id);
+            final MarcaDTO itemToDelete = service.get(id);
             if (itemToDelete != null) {
                 service.delete(id);
                 return new ResponseEntity<MarcaDTO>(itemToDelete, HttpStatus.OK);
