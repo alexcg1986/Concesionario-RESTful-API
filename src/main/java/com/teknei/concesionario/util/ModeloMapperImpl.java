@@ -1,4 +1,4 @@
-package com.teknei.concesionario.utils;
+package com.teknei.concesionario.util;
 
 import com.teknei.concesionario.dto.ModeloDTO;
 import com.teknei.concesionario.model.Modelo;

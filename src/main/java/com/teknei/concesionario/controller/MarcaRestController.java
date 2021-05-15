@@ -1,10 +1,10 @@
-package com.teknei.concesionario.controllers;
+package com.teknei.concesionario.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teknei.concesionario.dto.MarcaDTO;
-import com.teknei.concesionario.services.MarcaService;
+import com.teknei.concesionario.service.MarcaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;

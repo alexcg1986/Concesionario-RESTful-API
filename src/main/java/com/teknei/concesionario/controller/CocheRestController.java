@@ -1,11 +1,11 @@
-package com.teknei.concesionario.controllers;
+package com.teknei.concesionario.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.teknei.concesionario.dto.CocheDTO;
 import com.teknei.concesionario.dto.ParametrosDTO;
-import com.teknei.concesionario.services.CocheService;
+import com.teknei.concesionario.service.CocheService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;

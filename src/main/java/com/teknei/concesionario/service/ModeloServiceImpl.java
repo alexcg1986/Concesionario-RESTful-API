@@ -1,4 +1,4 @@
-package com.teknei.concesionario.services;
+package com.teknei.concesionario.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ import com.teknei.concesionario.dto.ParametrosDTO;
 import com.teknei.concesionario.model.Modelo;
 import com.teknei.concesionario.model.QModelo;
 import com.teknei.concesionario.repository.ModeloRepository;
-import com.teknei.concesionario.utils.Mapper;
+import com.teknei.concesionario.util.Mapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,7 +25,7 @@ public class ModeloServiceImpl extends GenericCrudServiceImpl<Modelo, ModeloDTO,
     private ModeloRepository repository;
 
     @Autowired
-    Mapper<Modelo, ModeloDTO> mapper;
+    private Mapper<Modelo, ModeloDTO> mapper;
 
     @Override
     public JpaRepository<Modelo, Integer> getRepository() {

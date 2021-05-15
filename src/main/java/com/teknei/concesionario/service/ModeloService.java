@@ -1,4 +1,4 @@
-package com.teknei.concesionario.services;
+package com.teknei.concesionario.service;
 
 import java.util.List;
 

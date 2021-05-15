@@ -1,4 +1,4 @@
-package com.teknei.concesionario.utils;
+package com.teknei.concesionario.util;
 
 import org.springframework.stereotype.Component;
 

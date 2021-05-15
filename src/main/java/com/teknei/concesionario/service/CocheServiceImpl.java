@@ -1,4 +1,4 @@
-package com.teknei.concesionario.services;
+package com.teknei.concesionario.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ import com.teknei.concesionario.dto.ParametrosDTO;
 import com.teknei.concesionario.model.Coche;
 import com.teknei.concesionario.model.QCoche;
 import com.teknei.concesionario.repository.CocheRepository;
-import com.teknei.concesionario.utils.Mapper;
+import com.teknei.concesionario.util.Mapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,7 +25,7 @@ public class CocheServiceImpl extends GenericCrudServiceImpl<Coche, CocheDTO, In
     private CocheRepository repository;
 
     @Autowired
-    Mapper<Coche, CocheDTO> mapper;
+    private Mapper<Coche, CocheDTO> mapper;
 
     @Override
     public JpaRepository<Coche, Integer> getRepository() {

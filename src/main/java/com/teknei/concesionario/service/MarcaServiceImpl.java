@@ -1,4 +1,4 @@
-package com.teknei.concesionario.services;
+package com.teknei.concesionario.service;
 
 import com.teknei.concesionario.common.GenericCrudServiceImpl;
 import com.teknei.concesionario.dto.MarcaDTO;
