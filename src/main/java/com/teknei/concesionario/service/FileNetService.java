@@ -7,9 +7,9 @@ import com.filenet.api.core.ObjectStore;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface FileNetService<Coche> {
+public interface FileNetService<CocheDTO> {
 
-    ObjectStore getObjectStore();
+    void getObjectStore(); // this would return an objStore, void for testing
 
-    void CreateDocument(List<Coche> list, ObjectStore os);
+    void CreateDocument(List<CocheDTO> list, ObjectStore os);
 }

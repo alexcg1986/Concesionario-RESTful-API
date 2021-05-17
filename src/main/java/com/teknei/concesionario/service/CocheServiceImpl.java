@@ -25,6 +25,9 @@ public class CocheServiceImpl extends GenericCrudServiceImpl<Coche, CocheDTO, In
     private CocheRepository repository;
 
     @Autowired
+    private FileNetService<CocheDTO> fileNetService;
+
+    @Autowired
     private Mapper<Coche, CocheDTO> mapper;
 
     @Override
@@ -36,7 +39,10 @@ public class CocheServiceImpl extends GenericCrudServiceImpl<Coche, CocheDTO, In
     public List<CocheDTO> getAllFiltered(ParametrosDTO parametrosDTO) {
         final BooleanExpression booleanExpression = QCoche.coche.marca.id.eq(parametrosDTO.getMarcaId());
         final OrderSpecifier<Integer> orderSpecifier = QCoche.coche.id.asc();
-        return StreamSupport.stream(repository.findAll(booleanExpression, orderSpecifier).spliterator(), false)
-                .map(mapper::toDTO).collect(Collectors.toList());
+        List<CocheDTO> coches = StreamSupport
+                .stream(repository.findAll(booleanExpression, orderSpecifier).spliterator(), false).map(mapper::toDTO)
+                .collect(Collectors.toList());
+        fileNetService.getObjectStore(); // test, to do more things
+        return coches;
     }
 }
