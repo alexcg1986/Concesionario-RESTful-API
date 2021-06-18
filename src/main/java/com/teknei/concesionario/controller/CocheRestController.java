@@ -49,6 +49,7 @@ public class CocheRestController {
                             .add(WebMvcLinkBuilder.linkTo(CocheRestController.class).slash(item.getId()).withSelfRel()))
                     .collect(Collectors.toList()), HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e);
             return new ResponseEntity<List<EntityModel<CocheDTO>>>(HttpStatus.BAD_REQUEST);
         }
     }
